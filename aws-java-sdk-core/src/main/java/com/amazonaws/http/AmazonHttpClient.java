@@ -508,7 +508,8 @@ public class AmazonHttpClient {
         return requestExecutionBuilder()
                 .request(request)
                 .requestConfig(new AmazonWebServiceRequestAdapter(request.getOriginalRequest()))
-                .errorResponseHandler(new AwsErrorResponseHandler(errorResponseHandler, executionContext.getAwsRequestMetrics()))
+                .errorResponseHandler(new AwsErrorResponseHandler(errorResponseHandler,
+                        executionContext.getAwsRequestMetrics(), config))
                 .executionContext(executionContext)
                 .execute(adaptedRespHandler);
     }
